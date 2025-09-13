@@ -127,4 +127,46 @@ from subprocess import Popen, PIPE
 import mypkg.sibling
 import .sibling
 
-#
+# コメントについて
+# ・コメントは常に最新に。コードの中身がコメントと異なるなら、ない方がまし。
+# ・なるべく英語で書く。日本人しか読まないなら日本語でもOK
+# ・書くときは文章で書くことが望ましい。
+# ・＃の後に半角スペースを入れる
+# ・インラインコメントはコードの後に半角スペースを2ついれる
+# ・Docstringは基本的に全てのmodule, function, class, metnodに付ける
+# ・そのコードが「何をしているか」よりも、「なぜそう書いたか」の方が有益
+
+
+# name convention:命名規則
+
+# return
+def foo(x):
+    if x >= 0:
+        return math.squrt(x)
+    else:
+        return None
+
+
+# オブジェクトタイプの確認はisinstance()をつかう
+
+# correct
+if isinstance(obj, int):
+
+# wrong
+if type(obj) is type(1):
+
+
+# Booleanに対して、比較演算子はつかわない
+bool_var = True
+# correct
+if bool_var:
+
+# wrong
+if bool_var == True:
+
+
+
+# type hint
+def greeting(name: str) -> str:
+    return "Hello" + name
+# 一つでもヒントをつけたらその関数の変数には全てhintをつける
